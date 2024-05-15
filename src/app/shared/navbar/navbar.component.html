@@ -1,0 +1,32 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+    <mat-toolbar color="warn">
+      <span>Menu</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let item of menuItems"
+        routerLinkActive="active-sidebar-item"
+        [routerLink]="item.path"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon matListItemIcon>
+          {{ item.icon }}
+        </mat-icon>
+        {{ item.name }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span class="text-dark text-center"> Citas Médicas Frontend </span>
+  </mat-toolbar>
+</mat-sidenav-container>
