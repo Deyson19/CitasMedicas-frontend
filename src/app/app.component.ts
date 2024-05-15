@@ -10,10 +10,5 @@ export class AppComponent {
   private _toastr = inject(ToastrService);
   title = 'appCitasMedicas';
 
-  constructor() {
-    this._toastr.success(
-      'Bienvenido a la aplicación de Citas Médicas',
-      'Bienvenido'
-    );
-  }
+  constructor() {}
 }
