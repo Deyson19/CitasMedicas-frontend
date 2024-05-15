@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { SpinnerComponent, SharedModule, NavbarComponent } from './shared/';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +14,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SpinnerComponent,
+    SharedModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
