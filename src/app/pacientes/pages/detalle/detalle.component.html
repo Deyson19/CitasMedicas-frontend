@@ -1,1 +1,30 @@
-<p>detalle works!</p>
+<app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading; else showPaciente" />
+<mat-divider />
+<ng-template #showPaciente>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="text-center text-primary">Datos del Paciente Seleccionado</h2>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">
+        {{ paciente!.nombre }}
+      </h4>
+      <p class="card-text">
+        {{ paciente?.email }}
+      </p>
+    </div>
+    <mat-card-actions align="end">
+      <button
+        mat-mini-fab
+        color="secondary"
+        class="m-2"
+        [routerLink]="['/pacientes/editar/', paciente!.id]"
+      >
+        <mat-icon> edit </mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" class="m-2" (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+</ng-template>
