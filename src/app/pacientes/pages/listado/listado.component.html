@@ -1,8 +1,13 @@
-<p>listado works!</p>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate itaque
-nostrum, consequatur magni nihil doloremque odio minima esse animi quisquam
-repellendus aliquid ratione, dignissimos culpa vel cumque mollitia autem ipsa.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus hic
-exercitationem dolorem veniam officiis veritatis nemo delectus asperiores,
-commodi enim explicabo aspernatur. Excepturi nisi reprehenderit unde, ad dolorem
-aut voluptatibus.
+<div class="card-header">
+  <h2 class="card-title text-center">Listado de Pacientes</h2>
+</div>
+<mat-divider />
+<div class="card-body">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3" *ngFor="let item of pacientes">
+      <app-pacientes-card-paciente [paciente]="item" />
+      <mat-divider />
+      <mat-divider />
+    </div>
+  </div>
+</div>
