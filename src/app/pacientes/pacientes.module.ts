@@ -11,6 +11,8 @@ import {
 } from './pages/';
 import { MaterialModule } from '../material/material.module';
 import { CardPacienteComponent } from './components/card-paciente/card-paciente.component';
+import { SpinnerComponent } from '../shared/spinner/spinner.component';
+import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,12 @@ import { CardPacienteComponent } from './components/card-paciente/card-paciente.
     BuscadorComponent,
     CardPacienteComponent,
   ],
-  imports: [CommonModule, PacientesRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    PacientesRoutingModule,
+    MaterialModule,
+    SpinnerComponent,
+    SharedModule,
+  ],
 })
 export class PacientesModule {}
