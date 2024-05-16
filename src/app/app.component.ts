@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,5 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  private _toastr = inject(ToastrService);
-  title = 'appCitasMedicas';
-
   constructor() {}
 }
