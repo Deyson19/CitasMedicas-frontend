@@ -57,4 +57,10 @@ export class PacientesService implements OnInit {
       paciente
     );
   }
+
+  deletePaciente(idPaciente: string): Observable<PacienteResponse> {
+    return this._http.delete<PacienteResponse>(
+      `${this._baseUrl}/Paciente/${idPaciente}`
+    );
+  }
 }
