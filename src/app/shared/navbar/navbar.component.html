@@ -9,7 +9,8 @@
     </mat-toolbar>
     <mat-nav-list>
       <mat-list-item
-        *ngFor="let item of menuItems"
+        *ngFor="let item of menuItems; let i = index"
+        [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="active-sidebar-item"
         [routerLink]="item.path"
         (click)="sidenav.toggle()"
