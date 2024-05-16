@@ -1,0 +1,20 @@
+<h1 class="text-danger tex-center" mat-dialog-title>
+  ¿Estás seguro de eliminar el registro?
+</h1>
+<div mat-dialog-content>
+  <p>La acción no se puede deshacer.</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button
+    mat-flat-button
+    color="primary"
+    class="btn btn-primary m-2"
+    (click)="onNoClick()"
+  >
+    No, Mantener!
+  </button>
+  <span class="spacer"></span>
+  <button mat-flat-button color="warn" (click)="onConfirm()" cdkFocusInitial>
+    Ok, Eliminar
+  </button>
+</div>
