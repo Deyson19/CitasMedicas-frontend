@@ -9,6 +9,8 @@ import {
   NuevoComponent,
   BuscadorComponent,
 } from './pages/';
+import { MaterialModule } from '../material/material.module';
+import { CardPacienteComponent } from './components/card-paciente/card-paciente.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {
     HistorialPacienteComponent,
     NuevoComponent,
     BuscadorComponent,
+    CardPacienteComponent,
   ],
-  imports: [CommonModule, PacientesRoutingModule],
+  imports: [CommonModule, PacientesRoutingModule, MaterialModule],
 })
 export class PacientesModule {}
