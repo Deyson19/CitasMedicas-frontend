@@ -1,1 +1,69 @@
-<p>historial-paciente works!</p>
+<div class="card mt-4">
+  <div class="card-header">
+    <h2 class="text-white text-center">Historial Médico del Paciente</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col col-4:col-auto">
+        <mat-card>
+          <mat-card-header>
+            <h4 class="card-title text-center text-white mx-auto">
+              Datos del Paciente
+            </h4>
+          </mat-card-header>
+          <mat-card-content>
+            Nombre: {{ paciente?.nombre }}
+            <br />
+            Email: {{ paciente?.email }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col col-4:col-auto">
+        <mat-card>
+          <mat-card-header>
+            <h4 class="card-title text-center text-info mx-auto">
+              Datos de los Médicos
+            </h4>
+          </mat-card-header>
+          <mat-card-content *ngFor="let medico of medicos">
+            Nombre: {{ medico.nombre }}
+            <br />
+            Email: {{ medico!.email }}
+            <br />
+            Teléfono: {{ medico.telefono }}
+            <br />
+            Especialidad: {{ medico.especialidad }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col col-4:col-auto">
+        <mat-card>
+          <mat-card-header>
+            <h4 class="card-title text-center text-dark mx-auto">
+              Datos de las Citas Médicas
+            </h4>
+          </mat-card-header>
+          <mat-card-content *ngFor="let cita of citasMedicas">
+            Hora: {{ cita.hora }}
+            <br />
+            Fecha: {{ cita.fecha }}
+            <br />
+            Síntomas: {{ cita.sintomas }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <mat-card-footer>
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        color="primary"
+        [routerLink]="['/paciente', paciente?.id]"
+      >
+        <mat-icon> arrow_back </mat-icon>
+        Regresar
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</div>
