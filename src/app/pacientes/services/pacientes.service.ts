@@ -50,10 +50,11 @@ export class PacientesService implements OnInit {
     );
   }
   putActualizarPaciente(
+    idPaciente: string,
     paciente: CrearActualizarPaciente
   ): Observable<PacienteResponse> {
     return this._http.put<PacienteResponse>(
-      `${this._baseUrl}/Paciente`,
+      `${this._baseUrl}/Paciente/${idPaciente}`,
       paciente
     );
   }
