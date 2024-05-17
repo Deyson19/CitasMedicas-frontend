@@ -4,6 +4,15 @@
   <div class="card">
     <div class="card-header">
       <h2 class="text-center text-primary">Datos del Paciente Seleccionado</h2>
+
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        accordion
+        [routerLink]="['/pacientes/historialPaciente', paciente!.id]"
+      >
+        Ver Historial Médico
+      </button>
     </div>
     <div class="card-body">
       <h4 class="card-title">

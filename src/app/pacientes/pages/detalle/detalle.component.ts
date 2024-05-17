@@ -37,7 +37,7 @@ export class DetalleComponent implements OnInit {
             setTimeout(() => {
               this.isLoading = false;
               this._toastService.info(resp.message, 'OK');
-            }, 1500);
+            }, 500);
             return;
           }
           this.isLoading = false;
