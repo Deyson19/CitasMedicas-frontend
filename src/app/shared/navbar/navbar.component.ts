@@ -14,11 +14,15 @@ interface MenuItems {
 export class NavbarComponent {
   menuItems: MenuItems[] = [
     { path: '/', name: 'Home', icon: 'home' },
-    { path: '/citasMedicas', name: 'Citas Medicas', icon: 'health_and_safety' },
+    {
+      path: '/citas-medicas',
+      name: 'Citas Medicas',
+      icon: 'health_and_safety',
+    },
     { path: '/pacientes', name: 'Pacientes', icon: 'groups' },
     { path: '/medicos', name: 'Medicos', icon: 'person' },
     {
-      path: '/historialMedico',
+      path: '/historial-medico',
       name: 'Historial Medico',
       icon: 'history',
     },
