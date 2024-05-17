@@ -5,8 +5,7 @@ import { environment } from 'src/environments/environments';
 import {
   PacientesResponse,
   PacienteResponse,
-  HistorialPaciente,
-  Pacientes,
+  HistorialPacienteResponse,
 } from '../interfaces/';
 import { CrearActualizarPaciente } from '../models/crearpaciente.model';
 
@@ -29,8 +28,10 @@ export class PacientesService implements OnInit {
     );
   }
 
-  getHistorialPaciente(idPaciente: string): Observable<HistorialPaciente> {
-    return this._http.get<HistorialPaciente>(
+  getHistorialPaciente(
+    idPaciente: string
+  ): Observable<HistorialPacienteResponse> {
+    return this._http.get<HistorialPacienteResponse>(
       `${this._baseUrl}/Paciente/HistorialPaciente/${idPaciente}`
     );
   }
