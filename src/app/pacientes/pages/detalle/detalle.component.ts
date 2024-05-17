@@ -72,6 +72,9 @@ export class DetalleComponent implements OnInit {
       .subscribe((x) => {
         if (x.isSuccess) {
           this._toast.warning(x.message, 'OK!');
+          this._router.navigateByUrl('/pacientes');
+        } else {
+          this._toast.error(x.message, 'Error!');
         }
       });
   }
