@@ -13,6 +13,7 @@ import { MaterialModule } from '../material/material.module';
 import { CardPacienteComponent } from './components/card-paciente/card-paciente.component';
 import { SpinnerComponent } from '../shared/spinner/spinner.component';
 import { SharedModule } from '../shared';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { SharedModule } from '../shared';
     MaterialModule,
     SpinnerComponent,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class PacientesModule {}
