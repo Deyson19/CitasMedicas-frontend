@@ -8,6 +8,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -25,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatDividerModule,
     MatDialogModule,
+    MatInputModule,
   ],
 })
 export class MaterialModule {}
