@@ -1,0 +1,54 @@
+<app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading; else citaDisplay" />
+
+<ng-template #citaDisplay>
+  <mat-card>
+    <div class="card-header">
+      <h2 class="text-center">Datos de la Cita Médica</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="card border-success">
+            <div class="card-body">
+              <h3 class="text-center bg-success">Hora de la Cita</h3>
+              <p class="text-center bg-info">
+                {{ citaMedica!.hora.slice(0, 8) }} hrs
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-primary">
+            <div class="card-body">
+              <h3 class="text-center bg-primary">Fecha de la Cita</h3>
+              <p class="card-text text-center bg-info">
+                {{ citaMedica?.fecha | date : "MMMM, dd, yyyy" }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-warning">
+            <div class="card-body">
+              <h3 class="text-center bg-warning">Síntomas</h3>
+              <p class="text-center bg-info">{{ citaMedica?.sintomas }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card-actions align="end">
+      <div class="d-flex justify-content-center m-2">
+        <button mat-raised-button color="primary" routerLink="/citas-medicas">
+          Regresar
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <mat-divider />
+      </div>
+      <button mat-raised-button color="warn" (click)="onDelete()">
+        Eliminar
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
