@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <div class="card-body">
+      <h4 class="text-center text-warning">
+        <strong>Síntomas Presentados</strong>
+        {{ citaMedica.sintomas }}
+      </h4>
+      <h4 class="text-center text-white">
+        <strong>Fecha de la Cita</strong>
+        <br />
+        {{ citaMedica.fecha }}
+      </h4>
+      <h5 class="text-center text-white">
+        <strong>Hora</strong>
+        {{ citaMedica.hora }}
+      </h5>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button
+      mat-raised-button
+      color="accent"
+      [routerLink]="['/detalle/', citaMedica.id]"
+    >
+      <mat-icon>visibility</mat-icon>
+      <span>Ver Detalle</span>
+    </button>
+  </mat-card-actions>
+</mat-card>
