@@ -1,3 +1,3 @@
-export { HistorialPacienteResponse } from './historial-pacientes.interface';
-export * from '../interfaces/pacientes.interface';
-export * from '../interfaces/paciente.interface';
+export { HistorialPacienteResponse } from './historial-paciente-response.interface';
+export { PacientesResponse } from './pacientes-response.interface';
+export { PacienteResponse } from './paciente-response.interface';
