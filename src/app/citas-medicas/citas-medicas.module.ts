@@ -4,12 +4,17 @@ import { IndexComponent } from './layout/index.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule, SpinnerComponent } from '../shared';
 import { MaterialModule } from '../material/material.module';
-import { ListadoComponent } from './pages/';
+import { ListadoComponent, DetalleComponent } from './pages/';
 import { CitasMedicasRoutingModule } from './citas-medicas-routing.module';
 import { CitaComponent } from './components/cita/cita.component';
 
 @NgModule({
-  declarations: [IndexComponent, ListadoComponent, CitaComponent],
+  declarations: [
+    IndexComponent,
+    ListadoComponent,
+    CitaComponent,
+    DetalleComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
