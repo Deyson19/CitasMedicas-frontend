@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { Paciente } from '../../interfaces';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PacientesService } from '../../services/pacientes.service';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Paciente } from 'src/app/models';
 
 @Component({
   templateUrl: './buscador.component.html',

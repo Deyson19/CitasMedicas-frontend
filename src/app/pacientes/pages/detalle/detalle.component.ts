@@ -1,12 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Paciente } from '../../interfaces';
 import { PacientesService } from '../../services/pacientes.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { filter, switchMap } from 'rxjs';
+import { Paciente } from 'src/app/models';
 
 @Component({
   templateUrl: './detalle.component.html',

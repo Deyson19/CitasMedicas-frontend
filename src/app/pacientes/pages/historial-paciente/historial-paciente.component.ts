@@ -2,13 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PacientesService } from '../../services/pacientes.service';
 import { ToastrService } from 'ngx-toastr';
-import {
-  CitaMedica,
-  HistorialMedico,
-  Medico,
-} from '../../interfaces/historial-pacientes.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Paciente } from '../../interfaces';
+import { CitaMedica, HistorialMedico, Medico, Paciente } from 'src/app/models';
 
 @Component({
   templateUrl: './historial-paciente.component.html',

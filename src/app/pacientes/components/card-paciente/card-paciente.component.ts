@@ -1,10 +1,10 @@
 import { Component, Input, inject } from '@angular/core';
-import { Paciente } from '../../interfaces';
 import { ToastrService } from 'ngx-toastr';
 import { PacientesService } from '../../services/pacientes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { filter, switchMap } from 'rxjs/operators';
+import { Paciente } from 'src/app/models';
 
 @Component({
   selector: 'app-pacientes-card-paciente',
