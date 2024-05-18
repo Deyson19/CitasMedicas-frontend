@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
@@ -28,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDividerModule,
     MatDialogModule,
     MatInputModule,
+    MatProgressBarModule,
+    MatAutocompleteModule,
   ],
 })
 export class MaterialModule {}
