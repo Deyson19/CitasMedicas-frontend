@@ -5,7 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './index.component.html',
 })
 export class IndexComponent {
-  constructor() {
-    console.log('Isloading');
-  }
+  constructor() {}
 }
