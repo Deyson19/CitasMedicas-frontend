@@ -34,10 +34,12 @@ export class DetalleComponent implements OnInit {
         (resp) => {
           if (resp.isSuccess) {
             this.paciente = resp.result;
+            this._toastService.info(resp.message, 'OK', {
+              timeOut: 700,
+            });
             setTimeout(() => {
               this.isLoading = false;
-              this._toastService.info(resp.message, 'OK');
-            }, 500);
+            }, 800);
             return;
           }
           this.isLoading = false;
