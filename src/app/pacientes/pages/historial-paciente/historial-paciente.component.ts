@@ -25,6 +25,7 @@ export class HistorialPacienteComponent implements OnInit {
   citasMedicas: CitaMedica[] = [];
   idPaciente?: string;
   isLoading = true;
+  mensaje = 'Buscando historial médico.';
 
   ngOnInit(): void {
     const id = this._activeRoute.snapshot.params['pacienteId'];
@@ -75,6 +76,6 @@ export class HistorialPacienteComponent implements OnInit {
     setTimeout(() => {
       this.isLoading = true;
       this._router.navigate(['/pacientes']);
-    }, 500);
+    }, 1500);
   }
 }
