@@ -3,7 +3,12 @@
 import { CitaMedicaViewModel } from './CitaMedicaViewModel';
 
 export interface CrearCitaMedica {
-  citaMedica: CitaMedicaViewModel;
+  citaMedica: CrearCita;
   pacienteId: string;
   medicoId: string;
+}
+interface CrearCita {
+  sintomas: string;
+  fecha: Date;
+  hora: Date;
 }
