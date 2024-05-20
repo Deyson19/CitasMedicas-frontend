@@ -7,6 +7,8 @@ import { MaterialModule } from '../material/material.module';
 import { ListadoComponent, DetalleComponent } from './pages/';
 import { CitasMedicasRoutingModule } from './citas-medicas-routing.module';
 import { CitaComponent } from './components/cita/cita.component';
+import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { CitaComponent } from './components/cita/cita.component';
     ListadoComponent,
     CitaComponent,
     DetalleComponent,
+    CrearCitaComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +25,8 @@ import { CitaComponent } from './components/cita/cita.component';
     MaterialModule,
     CitasMedicasRoutingModule,
     SpinnerComponent,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class CitasMedicasModule {}
