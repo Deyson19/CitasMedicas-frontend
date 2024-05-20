@@ -26,7 +26,7 @@ export class CitasMedicasService {
   }
   post(citaMedica: CrearCitaMedica): Observable<CrearCitaMedicaResponse> {
     return this._http.post<CrearCitaMedicaResponse>(
-      `${this._baseUrl}`,
+      `${this._baseUrl}/CitaMedica`,
       citaMedica
     );
   }
