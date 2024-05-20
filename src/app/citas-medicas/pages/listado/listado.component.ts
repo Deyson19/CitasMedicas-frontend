@@ -1,8 +1,12 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, Inject, OnInit, inject, signal } from '@angular/core';
 import { CitasMedicasService } from '../../services/citas-medicas.service';
-import { CitaMedica } from 'src/app/models';
+import { CitaMedica, Medico } from 'src/app/models';
 import { ToastrService } from 'ngx-toastr';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { CrearCitaMedica } from '../../models/crear-cita-medica';
+import { CrearCitaComponent } from '../../components/crear-cita/crear-cita.component';
+import { CitaMedicaViewModel } from '../../models/CitaMedicaViewModel';
 
 @Component({
   templateUrl: './listado.component.html',
@@ -13,10 +17,24 @@ export class ListadoComponent implements OnInit {
   private _citasService = inject(CitasMedicasService);
   private _snackBar = inject(MatSnackBar);
   private _toast = inject(ToastrService);
+
   //*Variables
   public citasMedicas: CitaMedica[] = [];
+  public medicos: Medico[] = [];
   mensaje = 'Cargando citas medicas';
   isLoading = signal<boolean>(true);
+
+  constructor(private dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CrearCitaComponent);
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this._toast.success('Registro creado', 'Datos Guardados');
+      }
+    });
+  }
 
   ngOnInit(): void {
     this._citasService.getAll().subscribe((resp) => {
