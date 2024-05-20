@@ -14,6 +14,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -32,6 +34,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatInputModule,
     MatProgressBarModule,
     MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}
