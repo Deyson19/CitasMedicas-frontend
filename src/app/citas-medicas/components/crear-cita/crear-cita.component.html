@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Nueva Cita Médica</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formCrearCita">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Síntomas Presentados</mat-label>
+          <input matInput formControlName="sintomas" />
+        </mat-form-field>
+        <mat-divider />
+        <mat-form-field>
+          <mat-label>Seleccionar Fecha</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-divider />
+
+        <div class="mb-3">
+          <label for="hora" class="form-label">Seleccionar Hora</label>
+          <input
+            type="datetime-local"
+            formControlName="hora"
+            class="form-control"
+            name="hora"
+            id="hora"
+            placeholder="HH:mm:ss"
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Seleccionar Médico</mat-label>
+          <mat-select formControlName="medicoId">
+            <mat-option *ngFor="let medico of medicosList" [value]="medico.id"
+              >{{ medico.nombre }} - {{ medico.especialidad }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <mat-divider />
+        <mat-form-field>
+          <mat-label>Seleccionar Paciente</mat-label>
+          <mat-select formControlName="pacienteId">
+            <mat-option
+              *ngFor="let paciente of pacientes"
+              [value]="paciente.id"
+              >{{ paciente.nombre }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-flat-button (click)="onNoClick()">No</button>
+  <button class="btn btn-outline-success" (click)="onConfirm()">
+    Ok, Guardar
+  </button>
+</div>
