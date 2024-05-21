@@ -1,6 +1,6 @@
 export interface CitaMedica {
   id: string;
-  fecha: Date;
+  fecha: string;
   hora: string;
   sintomas: string;
 }
