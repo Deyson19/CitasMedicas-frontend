@@ -7,8 +7,8 @@ export interface CrearCitaMedica {
   pacienteId: string;
   medicoId: string;
 }
-interface CrearCita {
+export interface CrearCita {
   sintomas: string;
-  fecha: Date;
-  hora: Date;
+  fecha: string;
+  hora: string;
 }

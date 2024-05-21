@@ -1,12 +1,10 @@
-import { Component, Inject, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CitasMedicasService } from '../../services/citas-medicas.service';
 import { CitaMedica, Medico } from 'src/app/models';
 import { ToastrService } from 'ngx-toastr';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { CrearCitaMedica } from '../../models/crear-cita-medica';
 import { CrearCitaComponent } from '../../components/crear-cita/crear-cita.component';
-import { CitaMedicaViewModel } from '../../models/CitaMedicaViewModel';
 
 @Component({
   templateUrl: './listado.component.html',
@@ -31,12 +29,19 @@ export class ListadoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this._toast.success('Registro creado', 'Datos Guardados');
+        this.isLoading.set(true);
+        setTimeout(() => {
+          this.listarTodos();
+        }, 1500);
       }
     });
   }
 
   ngOnInit(): void {
+    this.listarTodos();
+  }
+
+  private listarTodos() {
     this._citasService.getAll().subscribe((resp) => {
       if (resp.isSuccess) {
         setTimeout(() => {

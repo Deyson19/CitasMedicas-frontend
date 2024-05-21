@@ -1,7 +1,7 @@
 export interface CitaMedicaViewModel {
   sintomas: string;
-  fecha: Date;
-  hora: Date;
+  fecha: string;
+  hora: string;
   pacienteId: string;
   medicoId: string;
 }
