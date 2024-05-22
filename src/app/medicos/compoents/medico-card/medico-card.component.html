@@ -1,0 +1,39 @@
+<mat-card class="card shadow-lg">
+  <div class="text-center">
+    <mat-card-title>
+      <h3 class="text-center text-success">Nombre del Médico:</h3>
+      <p>{{ medico.nombre }}</p>
+    </mat-card-title>
+  </div>
+  <mat-card-content class="border-2">
+    <div class="row">
+      <div class="col">
+        <h4 class="text-info">Teléfono:</h4>
+        <p>{{ medico.telefono }}</p>
+      </div>
+      <div class="col">
+        <h4 class="text-primary">Correo Electrónico:</h4>
+        <p>{{ medico.email }}</p>
+      </div>
+    </div>
+    <mat-card-footer class="text-center">
+      <h3 class="text-success">Especialidad:</h3>
+      <p>{{ medico.especialidad }}</p>
+    </mat-card-footer>
+  </mat-card-content>
+  <mat-card-actions align="end" class="m-3 d-flex justify-content-around">
+    <button
+      mat-mini-fab
+      color="primary"
+      [routerLink]="['/medicos/editar', medico.id]"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab [routerLink]="['/medicos/detalle', medico.id]">
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
