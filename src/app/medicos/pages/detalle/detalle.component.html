@@ -1,1 +1,50 @@
-<p>detalle works!</p>
+<app-shared-spinner [mensaje]="mensaje" *ngIf="isLoading; else verMedico" />
+
+<ng-template #verMedico>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Datos del Médico seleccionado</h3>
+    </div>
+  </div>
+
+  <mat-card class="card shadow-lg">
+    <div class="text-center">
+      <mat-card-title>
+        <h3 class="text-center text-success">Nombre del Médico:</h3>
+        <p>{{ medico.nombre }}</p>
+      </mat-card-title>
+    </div>
+    <mat-card-content class="border-2">
+      <div class="row">
+        <div class="col">
+          <h4 class="text-info">Teléfono:</h4>
+          <p>{{ medico.telefono }}</p>
+        </div>
+        <div class="col">
+          <h4 class="text-primary">Correo Electrónico:</h4>
+          <p>{{ medico.email }}</p>
+        </div>
+        <div class="col">
+          <h3 class="text-success">Especialidad:</h3>
+          <p>{{ medico.especialidad }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end" class="m-3 d-flex justify-content-around">
+      <button
+        mat-mini-fab
+        color="primary"
+        [routerLink]="['/medicos/editar', medico.id]"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-flat-button color="accent" routerLink="/medicos">
+        <mat-icon> arrow_back </mat-icon>
+        Regresar
+      </button>
+      <button mat-mini-fab color="warn" (click)="onDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
