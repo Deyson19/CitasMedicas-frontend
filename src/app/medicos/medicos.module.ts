@@ -10,6 +10,7 @@ import {
   BuscarMedicoEspecialidadComponent,
   UpsertComponent,
 } from './pages/';
+import { SharedModule, SpinnerComponent } from '../shared';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import {
     BuscarMedicoEspecialidadComponent,
     UpsertComponent,
   ],
-  imports: [CommonModule, MedicosRoutingModule],
+  imports: [CommonModule, MedicosRoutingModule, SharedModule, SpinnerComponent],
 })
 export class MedicosModule {}
