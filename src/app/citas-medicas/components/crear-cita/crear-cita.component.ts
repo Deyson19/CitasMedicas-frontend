@@ -1,13 +1,13 @@
 import { Paciente } from './../../../models/paciente.interface';
-import { Component, Inject, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { CitaMedica, Medico } from 'src/app/models';
+import { Medico } from 'src/app/models';
 import { CitasMedicasService } from '../../services/citas-medicas.service';
 import { PacientesService } from 'src/app/pacientes/services/pacientes.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CitaMedicaViewModel } from '../../models/CitaMedicaViewModel';
-import { CrearCita, CrearCitaMedica } from '../../models/crear-cita-medica';
+import { CrearCitaMedica } from '../../models/crear-cita-medica';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -30,10 +30,7 @@ export class CrearCitaComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CrearCitaComponent>) {
     this.formCrearCita = this.fb.group({
-      sintomas: [
-        'Sintomas que tiene la persona',
-        [Validators.required, Validators.minLength(10)],
-      ],
+      sintomas: ['', [Validators.required, Validators.minLength(10)]],
       fecha: ['', [Validators.required]],
       hora: ['', [Validators.required]],
       pacienteId: ['', [Validators.required, Validators.minLength(10)]],
