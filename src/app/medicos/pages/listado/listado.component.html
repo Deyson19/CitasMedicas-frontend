@@ -1,1 +1,56 @@
-<p>listado works!</p>
+<app-shared-spinner
+  [mensaje]="mensaje"
+  *ngIf="isLoading; else displayMedicos"
+/>
+<ng-template #displayMedicos>
+  <mat-card class="card-header">
+    <h3 class="text-center text-success">Listado de los Médicos</h3>
+  </mat-card>
+  <mat-divider />
+  <div class="row col-12:col-auto">
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-success m-2"
+        mat-flat-button
+        color="primary"
+        routerLink="/medicos/buscar-medico"
+      >
+        Buscar Médico
+        <mat-icon> search </mat-icon>
+      </button>
+      <mat-divider />
+      <button
+        class="btn bg-success m-2"
+        mat-flat-button
+        color="accent"
+        routerLink="/medicos/nuevo"
+      >
+        <mat-icon> add </mat-icon>
+        Crear Médico
+      </button>
+      <mat-divider />
+      <button
+        class="btn bg-warning m-2"
+        mat-flat-button
+        color="basic"
+        routerLink="/medicos/buscar-especialidad"
+      >
+        <mat-icon> add </mat-icon>
+        Buscar Por Especialidad
+      </button>
+      <mat-divider />
+    </div>
+  </div>
+  <mat-divider />
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3" *ngFor="let x of medicosList">
+        <app-medicos-medico-card [medico]="x" />
+        <mat-divider />
+        <mat-divider />
+      </div>
+    </div>
+  </div>
+</ng-template>
+<mat-divider />
