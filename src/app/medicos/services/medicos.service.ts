@@ -18,7 +18,7 @@ export class MedicosService {
   private _baseUrl = environment.apiUrl;
 
   obtenerTodos(): Observable<MedicosResponse> {
-    return this._http.get<MedicosResponse>(`${this._baseUrl}/medicos`);
+    return this._http.get<MedicosResponse>(`${this._baseUrl}/Medico`);
   }
   obtener(id: string): Observable<MedicoResponse> {
     return this._http.get<MedicoResponse>(`${this._baseUrl}/Medico/${id}`);
