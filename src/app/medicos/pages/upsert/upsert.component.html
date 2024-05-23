@@ -1,1 +1,94 @@
-<p>upsert works!</p>
+<app-shared-spinner *ngIf="isLoading; else medicoForm" [mensaje]="mensaje" />
+
+<ng-template #medicoForm>
+  <div class="container my-5">
+    <button routerLink="/medicos" class="btn btn-outline-primary">
+      Regresar Al Listado
+    </button>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="mb-4 text-center text-success">
+          {{ titulo }}
+        </h2>
+        <form [formGroup]="formMedico">
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" formControlName="nombre" />
+            </mat-form-field>
+            <span
+              *ngIf="
+                formMedico.get('nombre')?.invalid &&
+                formMedico.get('nombre')?.touched &&
+                formMedico.get('nombre')?.hasError
+              "
+              class="text-danger"
+            >
+              {{ errorMessage("nombre") | uppercase }}
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Correo Electrónico</mat-label>
+              <input matInput type="email" formControlName="email" />
+            </mat-form-field>
+            <span
+              *ngIf="
+                formMedico.get('email')?.invalid &&
+                formMedico.get('email')?.touched &&
+                formMedico.get('email')?.hasError
+              "
+              class="text-danger"
+            >
+              {{ errorMessage("email") | uppercase }}
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Teléfono</mat-label>
+              <input matInput type="tel" formControlName="telefono" />
+            </mat-form-field>
+            <span
+              *ngIf="
+                formMedico.get('telefono')?.invalid &&
+                formMedico.get('telefono')?.touched &&
+                formMedico.get('telefono')?.hasError
+              "
+              class="text-danger"
+            >
+              {{ errorMessage("telefono") | uppercase }}
+            </span>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Especialidad</mat-label>
+              <input matInput type="text" formControlName="especialidad" />
+            </mat-form-field>
+            <span
+              *ngIf="
+                formMedico.get('especialidad')?.invalid &&
+                formMedico.get('especialidad')?.touched &&
+                formMedico.get('especialidad')?.hasError
+              "
+              class="text-danger"
+            >
+              {{ errorMessage("especialidad") | uppercase }}
+            </span>
+          </div>
+          <div class="float-end">
+            <button
+              type="submit"
+              mat-flat-button
+              color="primary"
+              (click)="onSubmit()"
+            >
+              Enviar
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>
