@@ -1,1 +1,68 @@
-<p>buscar-medico-especialidad works!</p>
+<mat-divider />
+
+<mat-card-title class="card-title text-center">
+  <h2 class="text-center text-primary">Buscador de Médicos</h2>
+  <div>
+    <button routerLink="/medicos" class="btn btn-dark">
+      Regresar al Listado
+    </button>
+  </div>
+</mat-card-title>
+<mat-divider />
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<div class="container">
+  <div class="d-flex flex-column">
+    <h3 class="text-success">Buscar un médico por especialidad</h3>
+    <mat-form-field>
+      <mat-label>Especialidad del Médico</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="searchInput"
+        (input)="searchMedico()"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="onSelectedOption($event)"
+      >
+        <mat-option *ngFor="let medico of medicos" [value]="medico.nombre">
+          {{ medico.nombre }} - {{ medico.especialidad }}
+        </mat-option>
+        <mat-option
+          *ngIf="
+            medicos?.length === 0 &&
+            searchInput.value &&
+            searchInput.value.length > 0
+          "
+          value=""
+        >
+          No se encontraron resultados para el termino de búsqueda.
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="card" mat-card *ngIf="medicoSeleccionado">
+  <div class="card-body text-center">
+    <h4 class="card-title text-center text-success">
+      Datos del medico Encontrado
+    </h4>
+    <p class="card-text">
+      {{ medicoSeleccionado.nombre }} - {{ medicoSeleccionado.especialidad }}
+    </p>
+    <p class="card-text">
+      {{ medicoSeleccionado.telefono }} - {{ medicoSeleccionado.email }}
+    </p>
+  </div>
+  <button
+    mat-flat-button
+    color="accent"
+    [routerLink]="['/medicos/detalle/', medicoSeleccionado.id]"
+  >
+    <mat-icon>visibility</mat-icon>
+    Ver medico
+  </button>
+</div>
