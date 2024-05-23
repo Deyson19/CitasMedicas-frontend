@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environments';
 import { CitaMedicaResponse, CitasMedicasResponse } from '../interfaces';
 import { CrearCitaMedicaResponse } from '../interfaces/crear-cita-medica-response';
 import { CrearCitaMedica } from '../models/crear-cita-medica';
-import { Medico } from 'src/app/models';
+import { MedicosService } from 'src/app/medicos/services/medicos.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ export class CitasMedicasService {
   //TODO: Evaluar los casos de error en los components
   private _http = inject(HttpClient);
   private _baseUrl = environment.apiUrl;
+  private _medicos = inject(MedicosService);
   constructor() {}
 
   getAll(): Observable<CitasMedicasResponse> {
@@ -34,15 +35,7 @@ export class CitasMedicasService {
     return this._http.delete<string>(`${this._baseUrl}/CitaMedica/${id}`);
   }
 
-  //! Este metodo no puede persistir aquí
-  //TODO: Una vez implementado el modulo de Medicos, se debe utilizar el listado que este proporciona
-
-  listadoMedicos(): Observable<MedicosRespose> {
-    return this._http.get<MedicosRespose>(`${this._baseUrl}/Medico`);
+  listadoMedicos() {
+    return this._medicos.obtenerTodos();
   }
-}
-interface MedicosRespose {
-  isSuccess: boolean;
-  message: string;
-  result: Medico[];
 }
