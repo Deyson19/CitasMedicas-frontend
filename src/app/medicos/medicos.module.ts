@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MedicosRoutingModule } from './medicos-routing.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -30,6 +31,8 @@ import { MaterialModule } from '../material/material.module';
     SharedModule,
     SpinnerComponent,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class MedicosModule {}
