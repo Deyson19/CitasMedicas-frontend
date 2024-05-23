@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import {
   BuscarMedicoEspecialidadComponent,
+  BuscarMedicoNombreComponent,
   DetalleComponent,
   ListadoComponent,
   UpsertComponent,
@@ -31,7 +32,7 @@ const routes: Routes = [
       },
       {
         path: 'buscar-medico',
-        component: BuscarMedicoEspecialidadComponent,
+        component: BuscarMedicoNombreComponent,
       },
       {
         path: 'buscar-especialidad',
