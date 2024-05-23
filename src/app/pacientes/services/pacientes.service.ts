@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, OnInit, inject, signal } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import {
   PacientesResponse,
