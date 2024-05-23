@@ -1,38 +1,48 @@
-<div class="card-header">
-  <h2 class="card-title text-center">Listado de Pacientes</h2>
-</div>
-<mat-divider />
-<div class="row col-12:col-auto">
-  <div class="d-flex justify-content-center">
-    <button
-      class="btn btn-success m-2"
-      routerLink="nuevo"
-      mat-flat-button
-      color="primary"
-    >
-      <mat-icon> add </mat-icon>
-      Crear Paciente
-    </button>
-    <mat-divider />
-    <button
-      class="btn btn-success m-2"
-      routerLink="buscador"
-      mat-flat-button
-      color="warn"
-    >
-      Buscar Paciente
-      <mat-icon> search </mat-icon>
-    </button>
-  </div>
-</div>
-<mat-divider />
+<app-shared-spinner
+  [mensaje]="mensaje"
+  *ngIf="isLoading; else displayPacientes"
+/>
 
-<div class="card-body">
-  <div class="row">
-    <div class="col-12 col-md-4 col-lg-3" *ngFor="let item of pacientes">
-      <app-pacientes-card-paciente [paciente]="item" />
+<ng-template #displayPacientes>
+  <div class="card-header">
+    <h2 class="card-title text-center">Listado de Pacientes</h2>
+  </div>
+  <mat-divider />
+  <div class="row col-12:col-auto">
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-success m-2"
+        routerLink="nuevo"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon> add </mat-icon>
+        Crear Paciente
+      </button>
       <mat-divider />
-      <mat-divider />
+      <button
+        class="btn btn-success m-2"
+        routerLink="buscador"
+        mat-flat-button
+        color="warn"
+      >
+        Buscar Paciente
+        <mat-icon> search </mat-icon>
+      </button>
     </div>
   </div>
-</div>
+  <mat-divider />
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3" *ngFor="let item of pacientes">
+        <app-pacientes-card-paciente
+          [paciente]="item"
+          (wasDelete)="isDeleting($event)"
+        />
+        <mat-divider />
+        <mat-divider />
+      </div>
+    </div>
+  </div>
+</ng-template>
