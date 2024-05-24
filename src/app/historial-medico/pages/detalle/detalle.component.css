@@ -1,5 +1,4 @@
-body,
-mat-card {
+.card {
   background: #2193b0; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,

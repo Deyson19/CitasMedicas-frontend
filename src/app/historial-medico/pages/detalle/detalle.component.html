@@ -41,17 +41,34 @@
                 <br />
                 {{ historialMedico.paciente.email }}
               </p>
-              <button
-                mat-flat-button
-                [routerLink]="[
-                  '/pacientes/detalle',
-                  historialMedico.pacienteId
-                ]"
-                class="bg-success"
-              >
-                Ver detalles
-                <mat-icon class="text-warning"> visibility </mat-icon>
-              </button>
+              <div class="row">
+                <div class="col">
+                  <button
+                    mat-flat-button
+                    [routerLink]="[
+                      '/pacientes/detalle',
+                      historialMedico.pacienteId
+                    ]"
+                    class="bg-success"
+                  >
+                    Paciente
+                    <mat-icon class="text-warning"> visibility </mat-icon>
+                  </button>
+                </div>
+                <div class="col">
+                  <button
+                    mat-flat-button
+                    [routerLink]="[
+                      '/historial-medico/historial-paciente',
+                      historialMedico.pacienteId
+                    ]"
+                    class="bg-info"
+                  >
+                    Historias
+                    <mat-icon> visibility </mat-icon>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -78,14 +95,34 @@
               <span class="badge rounded-pill text-bg-info">Correo: </span>
               <br />
               <p class="card-text">{{ historialMedico.medico.email }}</p>
-              <button
-                [routerLink]="['/medicos/detalle', historialMedico.medicoId]"
-                mat-flat-button
-                class="bg-primary-subtle"
-              >
-                Ver detalles
-                <mat-icon> visibility </mat-icon>
-              </button>
+              <div class="row">
+                <div class="col">
+                  <button
+                    [routerLink]="[
+                      '/medicos/detalle',
+                      historialMedico.medicoId
+                    ]"
+                    mat-flat-button
+                    class="bg-primary-subtle"
+                  >
+                    Médico
+                    <mat-icon> visibility </mat-icon>
+                  </button>
+                </div>
+                <div class="col">
+                  <button
+                    [routerLink]="[
+                      '/historial-medico/historial-medico',
+                      historialMedico.medicoId
+                    ]"
+                    mat-flat-button
+                    class="bg-warning"
+                  >
+                    Historias
+                    <mat-icon> visibility </mat-icon>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
