@@ -25,7 +25,7 @@ export class DetalleComponent implements OnInit {
         (x) => {
           if (x.isSuccess) {
             this.historialMedico = x.result;
-            this._toast.success(x.message, 'Resgistro', {
+            this._toast.success(x.message, 'Registro', {
               timeOut: 2500,
             });
             setTimeout(() => {
@@ -33,18 +33,30 @@ export class DetalleComponent implements OnInit {
             }, 2000);
           } else {
             this._toast.error(x.message, 'Uyy!');
+            setTimeout(() => {
+              this._router.navigate(['/historial-medico']);
+            }, 800);
           }
         },
         (error: HttpErrorResponse) => {
           if (error.status === 404) {
             this._toast.error(error.error, error.statusText);
+            setTimeout(() => {
+              this._router.navigate(['/historial-medico']);
+            }, 800);
             return;
           }
           this._toast.error(error.error.title, error.statusText);
+          setTimeout(() => {
+            this._router.navigate(['/historial-medico']);
+          }, 800);
         }
       );
     } else {
       this._toast.error('El parámetro no es correcto', 'Error!');
+      setTimeout(() => {
+        this._router.navigate(['/historial-medico']);
+      }, 800);
     }
   }
 }
