@@ -6,6 +6,8 @@ import {
   CrearHistorial,
   CrearHistorialResponse,
   HistorialMedicoResponse,
+  HistorialesDelMedicoResponse,
+  HistorialesDelPacienteResponse,
   HistorialesMedicosResponse,
 } from '../interfaces';
 
@@ -37,15 +39,17 @@ export class HistorialMedicoService {
       `${this._baseUrl}/HistorialMedico/${historialId}`
     );
   }
-  historialPorMedico(medicoId: string): Observable<HistorialMedicoResponse> {
-    return this._http.get<HistorialMedicoResponse>(
+  historialPorMedico(
+    medicoId: string
+  ): Observable<HistorialesDelMedicoResponse> {
+    return this._http.get<HistorialesDelMedicoResponse>(
       `${this._baseUrl}/HistorialMedico/MedicoId/${medicoId}`
     );
   }
   historialPorPaciente(
     pacienteId: string
-  ): Observable<HistorialMedicoResponse> {
-    return this._http.get<HistorialMedicoResponse>(
+  ): Observable<HistorialesDelPacienteResponse> {
+    return this._http.get<HistorialesDelPacienteResponse>(
       `${this._baseUrl}/HistorialMedico/PacienteId/${pacienteId}`
     );
   }
