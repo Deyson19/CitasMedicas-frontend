@@ -1,1 +1,95 @@
-<p>detalle works!</p>
+<app-shared-spinner
+  [mensaje]="mensaje"
+  *ngIf="isLoading; else displayHistorial"
+/>
+
+<ng-template #displayHistorial>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Detalles de la Historia Médica</h3>
+
+      <div class="d-grid gap-4">
+        <button
+          class="bg-success-subtle"
+          mat-stroked-button
+          color="basic"
+          routerLink="/historial-medico"
+        >
+          Regresar
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="row" *ngIf="historialMedico">
+        <div class="col-md-4">
+          <div class="card shadow-lg">
+            <div class="card-header">
+              <h3 class="card-title">Datos del Paciente</h3>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ historialMedico.paciente.nombre }}</h3>
+              <p class="card-text">{{ historialMedico.paciente.email }}</p>
+              <button
+                mat-flat-button
+                [routerLink]="[
+                  '/pacientes/detalle',
+                  historialMedico.pacienteId
+                ]"
+                class="bg-success"
+              >
+                Ver detalles
+                <mat-icon class="text-warning"> visibility </mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-lg">
+            <div class="card-header">
+              <h3 class="card-title">Datos del Médico</h3>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ historialMedico.medico.nombre }}</h3>
+              <p class="card-text">{{ historialMedico.medico.especialidad }}</p>
+              <button
+                [routerLink]="['/medicos/detalle', historialMedico.medicoId]"
+                mat-flat-button
+                class="bg-primary-subtle"
+              >
+                Ver detalles
+                <mat-icon> visibility </mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-lg">
+            <div class="card-header">
+              <h3 class="card-title">Datos de la Consulta</h3>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                {{ historialMedico.citaMedica.fecha }} -
+                {{ historialMedico.citaMedica.hora }}
+              </h3>
+              <p class="card-text">{{ historialMedico.citaMedica.sintomas }}</p>
+              <button
+                [routerLink]="[
+                  '/citas-medicas/detalle',
+                  historialMedico.citaMedicaId
+                ]"
+                mat-flat-button
+                class="bg-info"
+              >
+                Ver Cita Médica
+                <mat-icon> visibility </mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
