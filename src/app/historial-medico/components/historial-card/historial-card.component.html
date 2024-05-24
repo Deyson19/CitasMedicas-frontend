@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>
+    <h2 class="text-success text-center">Datos Principales</h2>
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      Paciente: {{ historiaMedica.paciente.nombre }} ({{
+        historiaMedica.paciente.email
+      }})
+    </p>
+    <hr />
+    <p>
+      Médico: {{ historiaMedica.medico.nombre }} ({{
+        historiaMedica.medico.email
+      }})
+    </p>
+    <p>Especialidad: {{ historiaMedica.medico.especialidad }}</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button
+      mat-raised-button
+      class="bg-info"
+      [routerLink]="['/historial-medico/historia', historiaMedica.id]"
+    >
+      <mat-icon>visibility</mat-icon>
+      Ver Historia
+    </button>
+  </mat-card-actions>
+</mat-card>
