@@ -29,8 +29,18 @@
               <h3 class="card-title">Datos del Paciente</h3>
             </div>
             <div class="card-body">
-              <h3 class="card-title">{{ historialMedico.paciente.nombre }}</h3>
-              <p class="card-text">{{ historialMedico.paciente.email }}</p>
+              <h3 class="card-title">
+                <span class="badge rounded-pill text-bg-success"
+                  >Nombre del Paciente:
+                </span>
+                <br />
+                {{ historialMedico.paciente.nombre }}
+              </h3>
+              <p class="card-text">
+                <span class="badge rounded-pill text-bg-success">Correo: </span>
+                <br />
+                {{ historialMedico.paciente.email }}
+              </p>
               <button
                 mat-flat-button
                 [routerLink]="[
@@ -51,8 +61,23 @@
               <h3 class="card-title">Datos del Médico</h3>
             </div>
             <div class="card-body">
-              <h3 class="card-title">{{ historialMedico.medico.nombre }}</h3>
-              <p class="card-text">{{ historialMedico.medico.especialidad }}</p>
+              <h3 class="card-title">
+                <span class="badge rounded-pill text-bg-success"
+                  >Nombre del Médico:
+                </span>
+                <br />
+                {{ historialMedico.medico.nombre }}
+              </h3>
+              <p class="card-text">
+                <span class="badge rounded-pill text-bg-success"
+                  >Especialidad:
+                </span>
+                <br />
+                {{ historialMedico.medico.especialidad }}
+              </p>
+              <span class="badge rounded-pill text-bg-info">Correo: </span>
+              <br />
+              <p class="card-text">{{ historialMedico.medico.email }}</p>
               <button
                 [routerLink]="['/medicos/detalle', historialMedico.medicoId]"
                 mat-flat-button
@@ -71,10 +96,22 @@
             </div>
             <div class="card-body">
               <h3 class="card-title">
-                {{ historialMedico.citaMedica.fecha }} -
+                <span class="badge rounded-pill text-bg-success"
+                  >Fecha y Hora de la consulta</span
+                >
+                <br />
+
+                {{ historialMedico.citaMedica.fecha | date }} -
                 {{ historialMedico.citaMedica.hora }}
               </h3>
-              <p class="card-text">{{ historialMedico.citaMedica.sintomas }}</p>
+              <p class="card-text">
+                <span class="badge rounded-pill text-bg-primary">
+                  Síntomas:
+                </span>
+                <br />
+
+                {{ historialMedico.citaMedica.sintomas }}
+              </p>
               <button
                 [routerLink]="[
                   '/citas-medicas/detalle',
