@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface MenuItems {
-  path: string;
-  name: string;
-  icon?: string;
-}
+import { MenuItems } from 'src/app/models';
 
 @Component({
   selector: 'app-shared-navbar',
