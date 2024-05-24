@@ -38,6 +38,7 @@
               Teléfono: {{ medico.telefono }}
               <br />
               Especialidad: {{ medico.especialidad }}
+              <hr />
             </mat-card-content>
           </mat-card>
         </div>
@@ -54,6 +55,7 @@
               Fecha: {{ cita.fecha }}
               <br />
               Síntomas: {{ cita.sintomas }}
+              <hr />
             </mat-card-content>
           </mat-card>
         </div>
@@ -64,7 +66,7 @@
         <button
           mat-flat-button
           color="primary"
-          [routerLink]="['/paciente', paciente?.id]"
+          [routerLink]="['/pacientes/detalle', paciente?.id]"
         >
           <mat-icon> arrow_back </mat-icon>
           Regresar
