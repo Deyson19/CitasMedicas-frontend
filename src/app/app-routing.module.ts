@@ -23,7 +23,7 @@ const routes: Routes = [
     path: 'historial-medico',
     loadChildren: () =>
       import('./historial-medico/historial-medico.module').then(
-        (x) => x.HistorialMedicoModule
+        (m) => m.HistorialMedicoModule
       ),
   },
   {
