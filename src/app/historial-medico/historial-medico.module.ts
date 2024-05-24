@@ -10,6 +10,9 @@ import {
   HistorialMedicoComponent,
 } from './pages/';
 import { LayoutComponent } from './layout/layout.component';
+import { SharedModule, SpinnerComponent } from '../shared';
+import { MaterialModule } from '../material/material.module';
+import { HistorialCardComponent } from './components/historial-card/historial-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,13 @@ import { LayoutComponent } from './layout/layout.component';
     HistorialMedicoComponent,
     LayoutComponent,
   ],
-  imports: [CommonModule, HistorialMedicoRoutingModule],
+  imports: [
+    CommonModule,
+    HistorialMedicoRoutingModule,
+    SharedModule,
+    SpinnerComponent,
+    MaterialModule,
+    HistorialCardComponent,
+  ],
 })
 export class HistorialMedicoModule {}
