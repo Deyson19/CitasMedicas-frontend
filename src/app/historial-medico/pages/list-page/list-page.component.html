@@ -1,1 +1,40 @@
-<p>list-page works!</p>
+<app-shared-spinner
+  [mensaje]="mensaje"
+  *ngIf="loading; else displayHistoriales"
+/>
+
+<ng-template #displayHistoriales>
+  <div class="card-header">
+    <h2 class="card-title text-center">Listado de Historias Médicas</h2>
+  </div>
+  <mat-divider />
+  <div class="row col-12:col-auto">
+    <div class="d-flex justify-content-center">
+      <button
+        *ngFor="let item of buttonsMenu"
+        class="btn btn-success m-2"
+        [routerLink]="item.path"
+        mat-flat-button
+        [color]="item.color"
+      >
+        <mat-icon> {{ item.icon }} </mat-icon>
+        {{ item.name }}
+      </button>
+      <mat-divider />
+    </div>
+  </div>
+  <mat-divider />
+
+  <div class="card-body">
+    <div class="row">
+      <div
+        class="col-12 col-md-4 col-lg-3"
+        *ngFor="let item of historialesMedico"
+      >
+        <app-historial-medico-historial-card [historiaMedica]="item" />
+        <mat-divider />
+        <mat-divider />
+      </div>
+    </div>
+  </div>
+</ng-template>
