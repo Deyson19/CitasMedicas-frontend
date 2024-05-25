@@ -37,7 +37,9 @@ export class HistorialMedicoComponent implements OnInit {
           resp.result.forEach((x) => {
             this.medico = x.medico;
           });
-          this.isLoading = false;
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 700);
         }
       },
       (err: HttpErrorResponse) => {
