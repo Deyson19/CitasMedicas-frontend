@@ -1,7 +1,7 @@
 # Aplicación de Citas Medicas hecho 
 
 # FrontEnd con Angular **16.2.14**
-# BackEnd Web API con .NET 8, PostgreSQL
+# BackEnd Web API con .NET 8, PostgreSQL y trabajo en capas
 
 ## Development server
 
